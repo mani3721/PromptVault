@@ -18,7 +18,7 @@ const monaSans = Mona_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://promptvault.app"),
+  metadataBase: new URL("https://aitrendinsights.com"),
   title: {
     default: "PromptVault — Best AI Prompts for ChatGPT, Gemini, Claude & More",
     template: "%s | PromptVault",
@@ -84,14 +84,14 @@ export const metadata: Metadata = {
     "discover AI prompts",
     "trending AI prompts",
   ],
-  authors: [{ name: "PromptVault", url: "https://promptvault.app" }],
+  authors: [{ name: "PromptVault", url: "https://aitrendinsights.com" }],
   creator: "PromptVault",
   publisher: "PromptVault",
   category: "Technology",
   applicationName: "PromptVault",
   openGraph: {
     type: "website",
-    url: "https://promptvault.app",
+    url: "https://aitrendinsights.com",
     siteName: "PromptVault",
     title: "PromptVault — Best AI Prompts for ChatGPT, Gemini, Claude & More",
     description:
@@ -129,7 +129,7 @@ export const metadata: Metadata = {
     google: "hOlZTLKR1HSqaTqYckFvxMfTbJKny-7fBxfOICAfrbU",
   },
   alternates: {
-    canonical: "https://promptvault.app",
+    canonical: "https://aitrendinsights.com",
   },
 };
 
@@ -154,8 +154,8 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "WebSite",
-                  "@id": "https://promptvault.app/#website",
-                  url: "https://promptvault.app",
+                  "@id": "https://aitrendinsights.com/#website",
+                  url: "https://aitrendinsights.com",
                   name: "PromptVault",
                   description:
                     "Discover, copy, and use the best AI prompts for ChatGPT, Gemini, Claude, Copilot, Grok, and Midjourney.",
@@ -164,16 +164,16 @@ export default function RootLayout({
                     "@type": "SearchAction",
                     target: {
                       "@type": "EntryPoint",
-                      urlTemplate: "https://promptvault.app/?q={search_term_string}",
+                      urlTemplate: "https://aitrendinsights.com/?q={search_term_string}",
                     },
                     "query-input": "required name=search_term_string",
                   },
                 },
                 {
                   "@type": "WebApplication",
-                  "@id": "https://promptvault.app/#webapp",
+                  "@id": "https://aitrendinsights.com/#webapp",
                   name: "PromptVault",
-                  url: "https://promptvault.app",
+                  url: "https://aitrendinsights.com",
                   applicationCategory: "UtilitiesApplication",
                   operatingSystem: "Any",
                   offers: {
@@ -186,17 +186,17 @@ export default function RootLayout({
                   publisher: {
                     "@type": "Organization",
                     name: "PromptVault",
-                    url: "https://promptvault.app",
+                    url: "https://aitrendinsights.com",
                   },
                 },
                 {
                   "@type": "Organization",
-                  "@id": "https://promptvault.app/#org",
+                  "@id": "https://aitrendinsights.com/#org",
                   name: "PromptVault",
-                  url: "https://promptvault.app",
+                  url: "https://aitrendinsights.com",
                   logo: {
                     "@type": "ImageObject",
-                    url: "https://promptvault.app/opengraph-image",
+                    url: "https://aitrendinsights.com/opengraph-image",
                     width: 1200,
                     height: 630,
                   },

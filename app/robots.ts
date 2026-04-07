@@ -14,7 +14,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/',
       },
     ],
-    sitemap: 'https://promptvault.app/sitemap.xml',
-    host: 'https://promptvault.app',
+    sitemap: 'https://aitrendinsights.com/sitemap.xml',
+    host: 'https://aitrendinsights.com',
   };
 }
