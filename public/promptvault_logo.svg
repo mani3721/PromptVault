@@ -1,0 +1,47 @@
+<svg width="100%" viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    
+  </defs>
+
+  <!-- Vault icon, centered vertically at y=100 -->
+  <g transform="translate(66, 100)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <!-- Body -->
+    <rect x="-48" y="-54" width="96" height="108" rx="9" style="fill:#f0ecfc; stroke:#534ab7; stroke-width:2;fill:rgb(240, 236, 252);stroke:rgb(83, 74, 183);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <!-- Door -->
+    <rect x="-37" y="-44" width="74" height="88" rx="6" style="fill:#eae4f9; stroke:#7f77dd; stroke-width:1.5;fill:rgb(234, 228, 249);stroke:rgb(127, 119, 221);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <!-- Hinges -->
+    <rect x="-37" y="-33" width="9" height="14" rx="2" style="fill:#7f77dd;;fill:rgb(127, 119, 221);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <rect x="-37" y="19" width="9" height="14" rx="2" style="fill:#7f77dd;;fill:rgb(127, 119, 221);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <!-- Bolts -->
+    <rect x="32" y="-16" width="7" height="11" rx="2" style="fill:#534ab7;;fill:rgb(83, 74, 183);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <rect x="32" y="5" width="7" height="11" rx="2" style="fill:#534ab7;;fill:rgb(83, 74, 183);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <!-- Dial outer -->
+    <circle cx="0" cy="0" r="24" style="fill:#fff; stroke:#534ab7; stroke-width:2;fill:rgb(255, 255, 255);stroke:rgb(83, 74, 183);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <circle cx="0" cy="0" r="18" style="fill:#eae4f9; stroke:#afa9ec; stroke-width:1;fill:rgb(234, 228, 249);stroke:rgb(175, 169, 236);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <!-- Tick marks -->
+    <g stroke="#7f77dd" stroke-width="1.5" stroke-linecap="round" style="fill:rgb(0, 0, 0);stroke:rgb(127, 119, 221);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+      <line x1="0" y1="-14" x2="0" y2="-20" style="fill:rgb(0, 0, 0);stroke:rgb(127, 119, 221);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+      <line x1="0" y1="14" x2="0" y2="20" style="fill:rgb(0, 0, 0);stroke:rgb(127, 119, 221);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+      <line x1="-14" y1="0" x2="-20" y2="0" style="fill:rgb(0, 0, 0);stroke:rgb(127, 119, 221);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+      <line x1="14" y1="0" x2="20" y2="0" style="fill:rgb(0, 0, 0);stroke:rgb(127, 119, 221);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+      <line x1="-10" y1="-10" x2="-14" y2="-14" style="fill:rgb(0, 0, 0);stroke:rgb(127, 119, 221);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+      <line x1="10" y1="-10" x2="14" y2="-14" style="fill:rgb(0, 0, 0);stroke:rgb(127, 119, 221);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    </g>
+    <!-- Pointer -->
+    <line x1="0" y1="0" x2="10" y2="-10" stroke="#3c3489" stroke-width="2.5" stroke-linecap="round" style="fill:rgb(0, 0, 0);stroke:rgb(60, 52, 137);color:rgb(0, 0, 0);stroke-width:2.5px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <circle cx="0" cy="0" r="3.5" style="fill:#534ab7;;fill:rgb(83, 74, 183);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <!-- { } -->
+    <text x="0" y="6" text-anchor="middle" style="font-family:'DM Mono',monospace; font-size:13px; font-weight:500; fill:#534ab7;;fill:rgb(83, 74, 183);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:13px;font-weight:500;text-anchor:middle;dominant-baseline:auto">{ }</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="126" y1="46" x2="126" y2="154" style="stroke:#afa9ec; stroke-width:1.5;fill:rgb(0, 0, 0);stroke:rgb(175, 169, 236);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Single-line wordmark -->
+  <text x="144" y="118" style="fill:rgb(26, 26, 46);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Playfair Display&quot;, Georgia, serif;font-size:54px;font-weight:700;text-anchor:start;dominant-baseline:auto">Prompt</text>
+  <text x="370" y="118" style="fill:rgb(83, 74, 183);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Playfair Display&quot;, Georgia, serif;font-size:54px;font-weight:700;text-anchor:start;dominant-baseline:auto">Vault</text>
+
+  <!-- Tagline centered under wordmark -->
+  <text x="146" y="144" style="fill:rgb(124, 111, 160);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;DM Mono&quot;, monospace;font-size:11.5px;font-weight:500;text-anchor:start;dominant-baseline:auto">YOUR PROMPT LIBRARY</text>
+
+</svg>

@@ -18,6 +18,7 @@ const monaSans = Mona_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://promptvault.app"),
   title: {
     default: "PromptVault — Best AI Prompts for ChatGPT, Gemini, Claude & More",
     template: "%s | PromptVault",
@@ -83,18 +84,27 @@ export const metadata: Metadata = {
     "discover AI prompts",
     "trending AI prompts",
   ],
-  authors: [{ name: "PromptVault" }],
+  authors: [{ name: "PromptVault", url: "https://promptvault.app" }],
   creator: "PromptVault",
   publisher: "PromptVault",
   category: "Technology",
   applicationName: "PromptVault",
   openGraph: {
     type: "website",
+    url: "https://promptvault.app",
     siteName: "PromptVault",
     title: "PromptVault — Best AI Prompts for ChatGPT, Gemini, Claude & More",
     description:
       "Discover and copy the best AI prompts for ChatGPT, Google Gemini, Claude, Copilot, and Midjourney. Free curated library covering coding, writing, marketing, SEO, and design.",
     locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "PromptVault — Best AI Prompts for ChatGPT, Gemini, Claude & More",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -102,6 +112,7 @@ export const metadata: Metadata = {
     description:
       "Browse a curated library of high-quality AI prompts. Works with ChatGPT, Google Gemini, Claude, Copilot, Grok, and Midjourney. Copy with one click.",
     creator: "@promptvault",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -134,6 +145,67 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="relative min-h-full font-sans">
+        {/* JSON-LD structured data for Google rich results */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": "https://promptvault.app/#website",
+                  url: "https://promptvault.app",
+                  name: "PromptVault",
+                  description:
+                    "Discover, copy, and use the best AI prompts for ChatGPT, Gemini, Claude, Copilot, Grok, and Midjourney.",
+                  inLanguage: "en-US",
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: {
+                      "@type": "EntryPoint",
+                      urlTemplate: "https://promptvault.app/?q={search_term_string}",
+                    },
+                    "query-input": "required name=search_term_string",
+                  },
+                },
+                {
+                  "@type": "WebApplication",
+                  "@id": "https://promptvault.app/#webapp",
+                  name: "PromptVault",
+                  url: "https://promptvault.app",
+                  applicationCategory: "UtilitiesApplication",
+                  operatingSystem: "Any",
+                  offers: {
+                    "@type": "Offer",
+                    price: "0",
+                    priceCurrency: "USD",
+                  },
+                  description:
+                    "A curated gallery of high-quality AI prompts for ChatGPT, Google Gemini, Claude, Copilot, Grok, and Midjourney. Browse, copy, and use for coding, writing, marketing, and design.",
+                  publisher: {
+                    "@type": "Organization",
+                    name: "PromptVault",
+                    url: "https://promptvault.app",
+                  },
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://promptvault.app/#org",
+                  name: "PromptVault",
+                  url: "https://promptvault.app",
+                  logo: {
+                    "@type": "ImageObject",
+                    url: "https://promptvault.app/opengraph-image",
+                    width: 1200,
+                    height: 630,
+                  },
+                  sameAs: ["https://twitter.com/promptvault"],
+                },
+              ],
+            }),
+          }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-11ENTQSETP"
           strategy="afterInteractive"

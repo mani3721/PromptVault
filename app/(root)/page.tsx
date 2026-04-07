@@ -243,13 +243,13 @@ export default function HomePage() {
       <footer className="border-t border-neutral-200 bg-white py-8 dark:border-neutral-800 dark:bg-neutral-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <div className="flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500 to-purple-600">
-                <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                </svg>
-              </div>
-              <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">PromptVault</span>
+            <div className="flex items-center">
+              <img
+                src="/promptvault_logo.svg"
+                alt="PromptVault"
+                className="h-14 w-auto opacity-80 dark:brightness-90 dark:contrast-110"
+                draggable={false}
+              />
             </div>
             <p className="text-xs text-neutral-400 dark:text-neutral-500">
               {prompts.length} prompts · Browse, Copy & Share

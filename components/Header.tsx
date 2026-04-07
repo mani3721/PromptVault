@@ -81,15 +81,13 @@ export function Header({ onAuthChange }: HeaderProps) {
     <header className="sticky top-0 z-50 border-b border-neutral-200/80 bg-white/80 backdrop-blur-xl dark:border-neutral-800/80 dark:bg-neutral-950/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <div className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 shadow-sm">
-            <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-            </svg>
-          </div>
-          <span className="text-[15px] font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
-            PromptVault
-          </span>
+        <div className="flex items-center">
+          <img
+            src="/promptvault_logo.svg"
+            alt="PromptVault"
+            className="h-15 w-auto dark:brightness-90 dark:contrast-110"
+            draggable={false}
+          />
         </div>
 
         {/* Right actions */}
