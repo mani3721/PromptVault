@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { Prompt } from '@/lib/types';
 import { TagBadge } from './TagFilter';
 import { toggleLike, incrementViews, incrementCopies } from '@/queries/prompts';
@@ -53,7 +54,7 @@ export function PromptCard({ prompt, isLoggedIn, userId, initialLiked = false }:
     // Optimistic update
     const nowLiked = !liked;
     setLiked(nowLiked);
-    setLikeCount((c) => (nowLiked ? c + 1 : Math.max(0, c - 1)));
+    setLikeCount((c: number) => (nowLiked ? c + 1 : Math.max(0, c - 1)));
     // Persist to Supabase
     const result = await toggleLike(prompt.id, userId);
     // Roll back if server disagrees
@@ -80,7 +81,7 @@ export function PromptCard({ prompt, isLoggedIn, userId, initialLiked = false }:
       className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-neutral-200/60 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:shadow-neutral-900/60"
     >
       {/* Thumbnail */}
-      <div className="relative overflow-hidden">
+      <Link href={`/prompts/${prompt.id}`} className="relative block overflow-hidden">
         <img
           src={prompt.image}
           alt={prompt.title}
@@ -96,13 +97,15 @@ export function PromptCard({ prompt, isLoggedIn, userId, initialLiked = false }:
             </span>
           </div>
         )}
-      </div>
+      </Link>
 
       {/* Card content */}
       <div className="flex flex-col gap-3 p-4">
-        <h3 className="line-clamp-1 text-[15px] font-semibold leading-snug text-neutral-900 dark:text-neutral-100">
-          {prompt.title}
-        </h3>
+        <Link href={`/prompts/${prompt.id}`}>
+          <h3 className="line-clamp-1 text-[15px] font-semibold leading-snug text-neutral-900 transition-colors hover:text-indigo-600 dark:text-neutral-100 dark:hover:text-indigo-400">
+            {prompt.title}
+          </h3>
+        </Link>
 
         <p className="text-sm leading-relaxed text-neutral-500 dark:text-neutral-400 line-clamp-3">
           {prompt.description}
@@ -179,7 +182,7 @@ export function PromptCard({ prompt, isLoggedIn, userId, initialLiked = false }:
         </div>
 
         {/* Author */}
-        <div className="flex items-center gap-2 border-t border-neutral-100 pt-3 dark:border-neutral-800">
+        {/* <div className="flex items-center gap-2 border-t border-neutral-100 pt-3 dark:border-neutral-800">
           {prompt.author.avatar ? (
             <img
               src={prompt.author.avatar}
@@ -195,7 +198,7 @@ export function PromptCard({ prompt, isLoggedIn, userId, initialLiked = false }:
           <span className="text-xs font-medium text-neutral-600 dark:text-neutral-400">
             {prompt.author.name}
           </span>
-        </div>
+        </div> */}
       </div>
     </article>
   );
