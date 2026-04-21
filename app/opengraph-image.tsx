@@ -132,7 +132,7 @@ export default function OgImage() {
             letterSpacing: '0.04em',
           }}
         >
-          promptvault.app
+          aitrendinsights.com
         </div>
       </div>
     ),

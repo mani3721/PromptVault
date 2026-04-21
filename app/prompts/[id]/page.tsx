@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getPromptById } from '@/queries/prompts.server';
 import { CopyPromptButton } from '@/components/CopyPromptButton';
+import { ShareButton } from '@/components/ShareButton';
+import { SITE_URL } from '@/lib/site';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -20,11 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: prompt.title,
     description,
     keywords: [prompt.title, ...prompt.tags, 'AI prompt', 'PromptVault'],
-    alternates: { canonical: `https://promptvault.app/prompts/${id}` },
+    alternates: { canonical: `${SITE_URL}/prompts/${id}` },
     openGraph: {
       title: `${prompt.title} | PromptVault`,
       description,
-      url: `https://promptvault.app/prompts/${id}`,
+      url: `${SITE_URL}/prompts/${id}`,
       images: [{ url: image, width: 1200, height: 900, alt: prompt.title }],
       type: 'article',
       siteName: 'PromptVault',
@@ -74,10 +76,10 @@ export default async function PromptDetailPage({ params }: Props) {
     publisher: {
       '@type': 'Organization',
       name: 'PromptVault',
-      url: 'https://promptvault.app',
+      url: SITE_URL,
     },
     datePublished: prompt.createdAt,
-    url: `https://promptvault.app/prompts/${id}`,
+    url: `${SITE_URL}/prompts/${id}`,
     keywords: prompt.tags.join(', '),
   };
 
@@ -131,6 +133,16 @@ export default async function PromptDetailPage({ params }: Props) {
                   {prompt.description}
                 </p>
               )}
+            </div>
+
+            {/* Action row — share + stats */}
+            <div className="flex items-center justify-between">
+              <ShareButton
+                promptId={id}
+                title={prompt.title}
+                description={prompt.description}
+                variant="detail"
+              />
             </div>
 
             {/* Stats row */}

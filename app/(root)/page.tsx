@@ -13,6 +13,7 @@ import { SkeletonCard } from '@/components/SkeletonCard';
 import { TrendingSection } from '@/components/TrendingSection';
 import { EmptyState } from '@/components/EmptyState';
 import { AddPromptModal } from '@/components/AddPromptModal';
+import { AdUnit } from '@/components/AdUnit';
 
 const PAGE_SIZE = 8;
 
@@ -161,7 +162,7 @@ export default function HomePage() {
 
           {!isLoggedIn && !isLoading && (
             <p className="mt-2 text-xs text-neutral-400 dark:text-neutral-500">
-              Sign in with Google to like, save, and add your own prompts.
+              Sign in with Google to add your own prompts.
             </p>
           )}
         </div>
@@ -239,20 +240,43 @@ export default function HomePage() {
         )}
       </main>
 
+      {/* Ad banner — between content and footer */}
+      {!isLoading && prompts.length > 0 && (
+        <div className="mx-auto w-full max-w-7xl px-4 pb-6 sm:px-6 lg:px-8">
+          <AdUnit slot="REPLACE_SLOT_ID_1" format="horizontal" />
+        </div>
+      )}
+
       {/* Footer */}
-      <footer className="border-t border-neutral-200 bg-white py-8 dark:border-neutral-800 dark:bg-neutral-900">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <div className="flex items-center">
+      <footer className="border-t border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
+            {/* Brand */}
+            <div className="flex flex-col items-center gap-1 sm:items-start">
               <img
                 src="/promptvault_logo.svg"
                 alt="PromptVault"
-                className="h-14 w-auto opacity-80 dark:brightness-90 dark:contrast-110"
+                className="h-10 w-auto opacity-80 dark:brightness-90 dark:contrast-110"
                 draggable={false}
               />
+              <p className="text-xs text-neutral-400 dark:text-neutral-500">
+                {prompts.length} prompts · Browse, Copy &amp; Share
+              </p>
             </div>
+
+            {/* Links */}
+            <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400">
+              <a href="/about" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">About</a>
+              <a href="/privacy" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">Privacy Policy</a>
+              <a href="/terms" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">Terms of Service</a>
+              <a href="mailto:contact@aitrendinsights.com" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">Contact</a>
+            </nav>
+          </div>
+
+          {/* Bottom line */}
+          <div className="mt-8 border-t border-neutral-100 pt-6 text-center dark:border-neutral-800">
             <p className="text-xs text-neutral-400 dark:text-neutral-500">
-              {prompts.length} prompts · Browse, Copy & Share
+              © {new Date().getFullYear()} PromptVault · <a href="https://www.aitrendinsights.com" className="hover:underline">aitrendinsights.com</a>
             </p>
           </div>
         </div>

@@ -96,6 +96,16 @@ begin
 end;
 $$;
 
+-- Anonymous like/unlike: no user_id needed, SECURITY DEFINER bypasses RLS.
+-- p_liked = true  → increment count
+-- p_liked = false → decrement count (floor at 0)
+create or replace function public.anon_like(p_prompt_id uuid, p_liked boolean)
+returns void language sql security definer as $$
+  update public.prompts
+  set likes = case when p_liked then likes + 1 else greatest(0, likes - 1) end
+  where id = p_prompt_id;
+$$;
+
 -- Increment views
 create or replace function public.increment_views(prompt_id uuid)
 returns void language sql security definer as $$

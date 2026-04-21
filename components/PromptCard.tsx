@@ -4,7 +4,25 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Prompt } from '@/lib/types';
 import { TagBadge } from './TagFilter';
-import { toggleLike, incrementViews, incrementCopies } from '@/queries/prompts';
+import { toggleLike, anonLike, incrementViews, incrementCopies } from '@/queries/prompts';
+import { ShareButton } from './ShareButton';
+
+const STORAGE_KEY = 'pv_liked';
+
+function getStoredLikes(): Set<string> {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return new Set(raw ? JSON.parse(raw) : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function setStoredLikes(ids: Set<string>) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...ids]));
+  } catch { /* ignore */ }
+}
 
 interface PromptCardProps {
   prompt: Prompt;
@@ -26,10 +44,15 @@ export function PromptCard({ prompt, isLoggedIn, userId, initialLiked = false }:
   const cardRef = useRef<HTMLElement>(null);
   const viewedRef = useRef(false);
 
-  // Sync liked state when the parent updates likedPromptIds
+  // For logged-in users: sync from parent's likedIds
+  // For anonymous: read from localStorage on mount
   useEffect(() => {
-    setLiked(initialLiked);
-  }, [initialLiked]);
+    if (isLoggedIn) {
+      setLiked(initialLiked);
+    } else {
+      setLiked(getStoredLikes().has(prompt.id));
+    }
+  }, [initialLiked, isLoggedIn, prompt.id]);
 
   // Increment view once when card enters viewport
   useEffect(() => {
@@ -50,17 +73,25 @@ export function PromptCard({ prompt, isLoggedIn, userId, initialLiked = false }:
   }, [prompt.id]);
 
   const handleLike = async () => {
-    if (!isLoggedIn || !userId) return;
-    // Optimistic update
     const nowLiked = !liked;
+    // Optimistic update
     setLiked(nowLiked);
     setLikeCount((c: number) => (nowLiked ? c + 1 : Math.max(0, c - 1)));
-    // Persist to Supabase
-    const result = await toggleLike(prompt.id, userId);
-    // Roll back if server disagrees
-    if (result !== nowLiked) {
-      setLiked(result);
-      setLikeCount((c) => (result ? c + 1 : Math.max(0, c - 1)));
+
+    if (isLoggedIn && userId) {
+      // Logged-in: use Supabase prompt_likes table (deduped per user)
+      const result = await toggleLike(prompt.id, userId);
+      if (result !== nowLiked) {
+        setLiked(result);
+        setLikeCount((c: number) => (result ? c + 1 : Math.max(0, c - 1)));
+      }
+    } else {
+      // Anonymous: persist in localStorage + fire anon RPC
+      const stored = getStoredLikes();
+      if (nowLiked) stored.add(prompt.id);
+      else stored.delete(prompt.id);
+      setStoredLikes(stored);
+      anonLike(prompt.id, nowLiked);
     }
   };
 
@@ -123,13 +154,11 @@ export function PromptCard({ prompt, isLoggedIn, userId, initialLiked = false }:
             {/* Like button */}
             <button
               onClick={handleLike}
-              title={isLoggedIn ? (liked ? 'Unlike' : 'Like') : 'Sign in to like'}
+              title={liked ? 'Unlike' : 'Like'}
               className={`group/btn flex h-8 items-center gap-1.5 rounded-lg px-2.5 text-sm transition-all duration-200 ${
                 liked
                   ? 'bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400'
-                  : isLoggedIn
-                  ? 'text-neutral-500 hover:bg-rose-50 hover:text-rose-600 dark:text-neutral-400 dark:hover:bg-rose-900/20 dark:hover:text-rose-400'
-                  : 'cursor-not-allowed text-neutral-400 opacity-60 dark:text-neutral-500'
+                  : 'text-neutral-500 hover:bg-rose-50 hover:text-rose-600 dark:text-neutral-400 dark:hover:bg-rose-900/20 dark:hover:text-rose-400'
               }`}
             >
               <svg
@@ -171,13 +200,16 @@ export function PromptCard({ prompt, isLoggedIn, userId, initialLiked = false }:
             </button>
           </div>
 
-          {/* View count */}
-          <div className="flex items-center gap-1 text-xs text-neutral-400 dark:text-neutral-500">
-            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <span className="tabular-nums">{formatNumber(viewCount)}</span>
+          {/* Right: views + share */}
+          <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 text-xs text-neutral-400 dark:text-neutral-500 mr-0.5">
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span className="tabular-nums">{formatNumber(viewCount)}</span>
+            </div>
+            <ShareButton promptId={prompt.id} title={prompt.title} description={prompt.description} />
           </div>
         </div>
 

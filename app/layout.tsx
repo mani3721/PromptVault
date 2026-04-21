@@ -3,6 +3,7 @@ import { IBM_Plex_Serif, Mona_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { SITE_URL } from "@/lib/site";
 
 const ibmPlexSerif = IBM_Plex_Serif({
   variable: "--font-ibm-plex-serif",
@@ -18,7 +19,7 @@ const monaSans = Mona_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aitrendinsights.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "PromptVault — Best AI Prompts for ChatGPT, Gemini, Claude & More",
     template: "%s | PromptVault",
@@ -84,14 +85,14 @@ export const metadata: Metadata = {
     "discover AI prompts",
     "trending AI prompts",
   ],
-  authors: [{ name: "PromptVault", url: "https://aitrendinsights.com" }],
+  authors: [{ name: "PromptVault", url: SITE_URL }],
   creator: "PromptVault",
   publisher: "PromptVault",
   category: "Technology",
   applicationName: "PromptVault",
   openGraph: {
     type: "website",
-    url: "https://aitrendinsights.com",
+    url: SITE_URL,
     siteName: "PromptVault",
     title: "PromptVault — Best AI Prompts for ChatGPT, Gemini, Claude & More",
     description:
@@ -129,7 +130,7 @@ export const metadata: Metadata = {
     google: "hOlZTLKR1HSqaTqYckFvxMfTbJKny-7fBxfOICAfrbU",
   },
   alternates: {
-    canonical: "https://aitrendinsights.com",
+    canonical: SITE_URL,
   },
 };
 
@@ -154,8 +155,8 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "WebSite",
-                  "@id": "https://aitrendinsights.com/#website",
-                  url: "https://aitrendinsights.com",
+                  "@id": `${SITE_URL}/#website`,
+                  url: SITE_URL,
                   name: "PromptVault",
                   description:
                     "Discover, copy, and use the best AI prompts for ChatGPT, Gemini, Claude, Copilot, Grok, and Midjourney.",
@@ -164,16 +165,16 @@ export default function RootLayout({
                     "@type": "SearchAction",
                     target: {
                       "@type": "EntryPoint",
-                      urlTemplate: "https://aitrendinsights.com/?q={search_term_string}",
+                      urlTemplate: `${SITE_URL}/?q={search_term_string}`,
                     },
                     "query-input": "required name=search_term_string",
                   },
                 },
                 {
                   "@type": "WebApplication",
-                  "@id": "https://aitrendinsights.com/#webapp",
+                  "@id": `${SITE_URL}/#webapp`,
                   name: "PromptVault",
-                  url: "https://aitrendinsights.com",
+                  url: SITE_URL,
                   applicationCategory: "UtilitiesApplication",
                   operatingSystem: "Any",
                   offers: {
@@ -186,17 +187,17 @@ export default function RootLayout({
                   publisher: {
                     "@type": "Organization",
                     name: "PromptVault",
-                    url: "https://aitrendinsights.com",
+                    url: SITE_URL,
                   },
                 },
                 {
                   "@type": "Organization",
-                  "@id": "https://aitrendinsights.com/#org",
+                  "@id": `${SITE_URL}/#org`,
                   name: "PromptVault",
-                  url: "https://aitrendinsights.com",
+                  url: SITE_URL,
                   logo: {
                     "@type": "ImageObject",
-                    url: "https://aitrendinsights.com/opengraph-image",
+                    url: `${SITE_URL}/opengraph-image`,
                     width: 1200,
                     height: 630,
                   },
@@ -206,6 +207,7 @@ export default function RootLayout({
             }),
           }}
         />
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-11ENTQSETP"
           strategy="afterInteractive"
@@ -218,6 +220,13 @@ export default function RootLayout({
             gtag('config', 'G-11ENTQSETP');
           `}
         </Script>
+        {/* Google AdSense — replace ca-pub-XXXXXXXX with your publisher ID */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-REPLACE_WITH_YOUR_PUBLISHER_ID"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

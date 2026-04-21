@@ -101,6 +101,15 @@ export async function toggleLike(
   return data as boolean;
 }
 
+/**
+ * Like/unlike for anonymous (non-logged-in) users.
+ * p_liked = true  → increment, false → decrement
+ */
+export async function anonLike(promptId: string, liked: boolean): Promise<void> {
+  const supabase = createClient();
+  await supabase.rpc('anon_like', { p_prompt_id: promptId, p_liked: liked });
+}
+
 /** Increments the view count (fire-and-forget) */
 export async function incrementViews(promptId: string): Promise<void> {
   const supabase = createClient();
